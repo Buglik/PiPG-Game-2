@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Character.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -13,18 +16,15 @@ size = Vector3( 30, 2, 30 )
 [node name="Level" type="Spatial"]
 
 [node name="Box" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.02844, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.63424, 6.16021, -0.39234 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Box"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0452404, -4.76837e-07, 0.0524082 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Box"]
 mesh = SubResource( 2 )
 material/0 = null
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.981135, -0.00352338, 0.193292, -0.0379453, 0.976876, 0.210415, -0.189563, -0.21378, 0.958313, 0.898593, 2.74274, 9.03331 )
-fov = 39.6722
 
 [node name="Floor" type="StaticBody" parent="."]
 
@@ -34,3 +34,11 @@ shape = SubResource( 3 )
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 mesh = SubResource( 4 )
 material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.97999, -0.0135319, 0.198584, -0.0295045, 0.976789, 0.212161, -0.196846, -0.213775, 0.956845, 1.13689, 5.7457, 13.3962 )
+fov = 77.5689
+
+[node name="Character" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+script = ExtResource( 2 )
