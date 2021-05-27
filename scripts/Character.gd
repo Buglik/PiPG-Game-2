@@ -2,7 +2,7 @@ extends KinematicBody
 
 var velocity = Vector3()
 const SPEED = 5
-const SPINDEG = 10
+const SPINDEG = 8
 
 func _ready():
 	pass
