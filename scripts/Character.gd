@@ -10,7 +10,7 @@ func _ready():
 func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left"):
-		velocity.x = 0
+		velocity.x = lerp(velocity.x,0,0.1)
 	else:
 		if Input.is_action_pressed("ui_right"):
 			velocity.x = SPEED
@@ -22,14 +22,14 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x,0,0.1)
 	
 	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_down"):
-		velocity.z = 0
+		velocity.z = lerp(velocity.z,0,0.1)
 	else:
 		if Input.is_action_pressed("ui_up"):
-			velocity.z = SPEED
-			$MeshInstance.rotate_x(deg2rad(SPINDEG))
-		elif Input.is_action_pressed("ui_down"):
-			velocity.z = -SPEED	
+			velocity.z = -SPEED
 			$MeshInstance.rotate_x(-deg2rad(SPINDEG))
+		elif Input.is_action_pressed("ui_down"):
+			velocity.z = SPEED	
+			$MeshInstance.rotate_x(deg2rad(SPINDEG))
 		else:
 			velocity.z = lerp(velocity.z,0,0.1)	
 		
