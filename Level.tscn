@@ -6,10 +6,7 @@
 [ext_resource path="res://textures/TactilePaving001_2K_Roughness.jpg" type="Texture" id=4]
 [ext_resource path="res://textures/TactilePaving001_2K_Normal.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/blocksLib.tres" type="MeshLibrary" id=6]
-
-[sub_resource type="BoxShape" id=1]
-
-[sub_resource type="CubeMesh" id=2]
+[ext_resource path="res://assets/enemy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 15, 1, 15 )
@@ -26,18 +23,36 @@ normal_texture = ExtResource( 5 )
 uv1_scale = Vector3( 0.2, 0.2, 0.2 )
 uv1_triplanar = true
 
+[sub_resource type="Animation" id=6]
+resource_name = "enemy_1_animation"
+length = 14.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 4.5, 6, 10, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -5, 2, -3 ), Vector3( -5, 2, -6 ), Vector3( -5, 2, 0 ), Vector3( -5, 2, -3 ), Vector3( 9, 2, -3 ), Vector3( -5, 2, -3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5, 6, 7.5, 9, 10, 11, 12.5, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -178.341, 0, 0 ), Vector3( 1.659, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -720 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, 0 ) ]
+}
+
 [node name="Level" type="Spatial"]
-
-[node name="Box" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7402, 21.0965, -0.47579 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Box"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0452404, -4.76837e-07, 0.0524082 )
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Box"]
-mesh = SubResource( 2 )
-material/0 = null
 
 [node name="Floor" type="StaticBody" parent="."]
 
@@ -59,6 +74,7 @@ transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866025, 0, 7, 11.03
 [node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
 transform = Transform( 1, 5.96046e-08, -3.72529e-08, -5.96046e-08, 1, 0, 3.72529e-08, 2.22045e-15, 1, 0, 10, 50 )
 environment = ExtResource( 3 )
+fov = 75.0
 target = NodePath("../Character/cameraTarget")
 speed = 3.0
 enabled = true
@@ -81,3 +97,12 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 1, 0 )
 }
+
+[node name="enemy1" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy1"]
+autoplay = "enemy_1_animation"
+anims/enemy_1_animation = SubResource( 6 )
+
+[connection signal="body_entered" from="enemy1" to="Character" method="_on_enemy_body_entered"]

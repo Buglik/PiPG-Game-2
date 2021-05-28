@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://scripts/button-start-game.gd" type="Script" id=2]
+[ext_resource path="res://button-start-again.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 64
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -24,24 +24,29 @@ __meta__ = {
 margin_right = 1280.0
 margin_bottom = 720.0
 color = Color( 0.184314, 0.0196078, 0.0196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
-margin_right = 1280.0
-margin_bottom = 150.0
+margin_left = -1.0
+margin_top = 1.0
+margin_right = 1279.0
+margin_bottom = 346.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0.647059, 0.254902, 0.254902, 1 )
 custom_constants/shadow_offset_x = 4
 custom_constants/line_spacing = 0
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 2
-text = "PiPG Game #2"
+text = "Game Over :("
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="button-start-game" type="Button" parent="."]
+[node name="button-start-again" type="Button" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -54,11 +59,11 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.647059, 0.254902, 0.254902, 1 )
 custom_colors/font_color_pressed = Color( 0.0509804, 0.921569, 0, 1 )
-text = "Start Game"
+text = "Try again"
 flat = true
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="button-start-game" to="button-start-game" method="_on_buttonstartgame_pressed"]
+[connection signal="pressed" from="button-start-again" to="button-start-again" method="_on_buttonstartagain_pressed"]
