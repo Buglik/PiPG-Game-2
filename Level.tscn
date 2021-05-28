@@ -348,8 +348,35 @@ anims/enemy_1_animation = SubResource( 6 )
 
 [node name="coins" type="Spatial" parent="."]
 
-[node name="coin" parent="coins" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5849 )
+[node name="coinHolder1" type="Spatial" parent="coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3.5 )
+
+[node name="coin" parent="coins/coinHolder1" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder2" type="Spatial" parent="coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 6.5 )
+
+[node name="coin" parent="coins/coinHolder2" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder3" type="Spatial" parent="coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, 9.5 )
+
+[node name="coin" parent="coins/coinHolder3" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder4" type="Spatial" parent="coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -5.5 )
+
+[node name="coin" parent="coins/coinHolder4" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder5" type="Spatial" parent="coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -4.5 )
+
+[node name="coin" parent="coins/coinHolder5" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="HUD" type="Control" parent="."]
 margin_left = 8.18945
@@ -390,9 +417,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Timer" type="Timer" parent="HUD/Counter"]
+
 [connection signal="body_entered" from="enemies/enemy4" to="Character" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="enemies/enemy3" to="Character" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="enemies/enemy2" to="Character" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="enemies/enemy1" to="Character" method="_on_enemy_body_entered"]
-[connection signal="body_entered" from="coins/coin" to="coins/coin" method="_on_coin_body_entered"]
-[connection signal="coinCollected" from="coins/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="body_entered" from="coins/coinHolder1/coin" to="coins/coinHolder1/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="coins/coinHolder1/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="body_entered" from="coins/coinHolder2/coin" to="coins/coinHolder2/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="coins/coinHolder2/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="body_entered" from="coins/coinHolder3/coin" to="coins/coinHolder3/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="coins/coinHolder3/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="body_entered" from="coins/coinHolder4/coin" to="coins/coinHolder4/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="coins/coinHolder4/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="body_entered" from="coins/coinHolder5/coin" to="coins/coinHolder5/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="coins/coinHolder5/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="timeout" from="HUD/Counter/Timer" to="HUD/Counter" method="_on_Timer_timeout"]

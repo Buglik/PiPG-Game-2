@@ -12,6 +12,7 @@ func _physics_process(delta):
 func _on_coin_body_entered(body):
 	if body.name == "Character":
 		emit_signal("coinCollected")
+		$AnimationPlayer.play("bounce")
 		$Timer.start()
 
 func _on_Timer_timeout():
