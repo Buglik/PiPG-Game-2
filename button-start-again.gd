@@ -2,7 +2,7 @@ extends Button
 
 
 func _ready():
-	pass
+	$GameOver.play()
 
 
 func _on_buttonstartagain_pressed():

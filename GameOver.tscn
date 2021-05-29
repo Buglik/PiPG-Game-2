@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://button-start-again.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://audio/gameover.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 96
@@ -65,5 +66,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GameOver" type="AudioStreamPlayer" parent="button-start-again"]
+stream = ExtResource( 3 )
 
 [connection signal="pressed" from="button-start-again" to="button-start-again" method="_on_buttonstartagain_pressed"]

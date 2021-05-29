@@ -5,7 +5,7 @@ const SPEED = 5
 const SPINDEG = 8
 
 func _ready():
-	pass
+	$Music.play()
 
 func _physics_process(delta):
 	
