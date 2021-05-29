@@ -1,6 +1,5 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://button-start-again.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
@@ -12,6 +11,18 @@ font_data = ExtResource( 2 )
 size = 64
 use_filter = true
 font_data = ExtResource( 2 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Button
+
+
+func _ready():
+	pass
+
+
+func _on_buttonstartagain_pressed():
+	get_tree().change_scene(\"res://MainMenu.tscn\")
+"
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -63,7 +74,7 @@ custom_colors/font_color_hover = Color( 0.647059, 0.254902, 0.254902, 1 )
 custom_colors/font_color_pressed = Color( 0.0509804, 0.921569, 0, 1 )
 text = "Play again"
 flat = true
-script = ExtResource( 1 )
+script = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
