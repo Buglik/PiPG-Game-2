@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Character.gd" type="Script" id=2]
@@ -12,13 +12,13 @@
 [ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=10]
 [ext_resource path="res://scripts/Counter.gd" type="Script" id=11]
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 15, 1, 15 )
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=2]
 size = Vector3( 30, 2, 30 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.913725, 0.639216, 0.639216, 1 )
 roughness_texture = ExtResource( 4 )
 normal_enabled = true
@@ -27,7 +27,7 @@ normal_texture = ExtResource( 5 )
 uv1_scale = Vector3( 0.2, 0.2, 0.2 )
 uv1_triplanar = true
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 resource_name = "anemy_4_animation"
 length = 9.5
 loop = true
@@ -56,7 +56,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 180, 0, 180 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 180, 0, 180 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 180 ), Vector3( 180, 0, 180 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=5]
 resource_name = "enemy_1_animation"
 length = 14.0
 loop = true
@@ -85,65 +85,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( -178.341, 0, 0 ), Vector3( 1.659, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -720 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "enemy_3_animation"
-length = 11.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 4, 7, 7.3, 8.5, 11.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 9, 2, -3 ), Vector3( 9, 2, -9 ), Vector3( 9, 2, -3 ), Vector3( 9, 2, 6 ), Vector3( 6, 2, 6 ), Vector3( 9, 2, 6 ), Vector3( 9, 2, -3 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2, 4, 6, 7, 7.3, 8.5, 11.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( -270, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 270, 0, 0 ), Vector3( 405, 0, 0 ), Vector3( 405, 180, 180 ), Vector3( 405, 0, 0 ), Vector3( 0, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "enemy_1_animation"
-length = 14.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5, 4.5, 6, 10, 14 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -5, 2, -3 ), Vector3( -5, 2, -6 ), Vector3( -5, 2, 0 ), Vector3( -5, 2, -3 ), Vector3( 9, 2, -3 ), Vector3( -5, 2, -3 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5, 3, 4.5, 6, 7.5, 9, 10, 11, 12.5, 14 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( -178.341, 0, 0 ), Vector3( 1.659, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -720 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=6]
 resource_name = "enemy_3_animation"
 length = 11.5
 loop = true
@@ -202,8 +144,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-resource_name = "enemy_2_animation"
-length = 9.0
+resource_name = "enemy_3_animation"
+length = 11.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -212,10 +154,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3, 4.5, 6, 9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 4, 7, 7.3, 8.5, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 2, 13 ), Vector3( 0, 2, 3.5 ), Vector3( -5, 2, 3.5 ), Vector3( 0, 2, 3.5 ), Vector3( 0, 2, 13 ) ]
+"values": [ Vector3( 9, 2, -3 ), Vector3( 9, 2, -9 ), Vector3( 9, 2, -3 ), Vector3( 9, 2, 6 ), Vector3( 6, 2, 6 ), Vector3( 9, 2, 6 ), Vector3( 9, 2, -3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -224,14 +166,13 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5, 3, 4.5, 6, 7.5, 9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 4, 6, 7, 7.3, 8.5, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( -270, 0, 0 ), Vector3( -540, 0, 0 ), Vector3( -540, 0, -180 ), Vector3( -540, 0, 0 ), Vector3( -270, 0, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( -270, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 270, 0, 0 ), Vector3( 405, 0, 0 ), Vector3( 405, 180, 180 ), Vector3( 405, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "enemy_1_animation"
+[sub_resource type="Animation" id=9]
 length = 14.0
 loop = true
 tracks/0/type = "value"
@@ -259,6 +200,119 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( -178.341, 0, 0 ), Vector3( 1.659, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -720 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=10]
+length = 9.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 4.5, 6, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 2, 13 ), Vector3( 0, 2, 3.5 ), Vector3( -5, 2, 3.5 ), Vector3( 0, 2, 3.5 ), Vector3( 0, 2, 13 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5, 6, 7.5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -270, 0, 0 ), Vector3( -540, 0, 0 ), Vector3( -540, 0, -180 ), Vector3( -540, 0, 0 ), Vector3( -270, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 14.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 4.5, 6, 10, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -5, 2, -3 ), Vector3( -5, 2, -6 ), Vector3( -5, 2, 0 ), Vector3( -5, 2, -3 ), Vector3( 9, 2, -3 ), Vector3( -5, 2, -3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5, 6, 7.5, 9, 10, 11, 12.5, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -178.341, 0, 0 ), Vector3( 1.659, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -720 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 14.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 4.5, 6, 10, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -5, 2, -3 ), Vector3( -5, 2, -6 ), Vector3( -5, 2, 0 ), Vector3( -5, 2, -3 ), Vector3( 9, 2, -3 ), Vector3( -5, 2, -3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5, 6, 7.5, 9, 10, 11, 12.5, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -178.341, 0, 0 ), Vector3( 1.659, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -720 ), Vector3( 0, 0, -540 ), Vector3( 0, 0, -270 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "enemy_5_animation"
+length = 6.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 2, 3.5, 5, 5.5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -9, 2, -9 ), Vector3( -1, 2, -9 ), Vector3( -1, 2, -12 ), Vector3( -12, 2, -12 ), Vector3( -12, 2, -1 ), Vector3( -9, 2, -1 ), Vector3( -9, 2, -9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5, 2, 3.5, 5, 5.5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -360 ), Vector3( -180, 0, -360 ), Vector3( -180, 0, -720 ), Vector3( 180, 0, -720 ), Vector3( 180, 0, -630 ), Vector3( -180, 0, -630 ) ]
+}
+
 [sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 10 )
 
@@ -271,12 +325,12 @@ font_data = ExtResource( 10 )
 [node name="Floor" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0658111, 0.0104675, 0.0472107 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
@@ -319,32 +373,40 @@ transform = Transform( -0.90722, -0.420657, 0, -0.420657, 0.90722, 8.74228e-08, 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/enemy4"]
 autoplay = "anemy_4_animation"
-anims/anemy_4_animation = SubResource( 11 )
-anims/enemy_1_animation = SubResource( 12 )
-anims/enemy_3_animation = SubResource( 13 )
+anims/anemy_4_animation = SubResource( 4 )
+anims/enemy_1_animation = SubResource( 5 )
+anims/enemy_3_animation = SubResource( 6 )
 
 [node name="enemy3" parent="enemies" instance=ExtResource( 7 )]
 transform = Transform( 0.707661, 0.0127289, 0.706437, 0.706437, -0.0307594, -0.707107, 0.0127289, 0.999446, -0.0307594, 7.45845, 2, 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/enemy3"]
 autoplay = "enemy_3_animation"
-anims/enemy_1_animation = SubResource( 9 )
-anims/enemy_3_animation = SubResource( 10 )
+anims/enemy_1_animation = SubResource( 7 )
+anims/enemy_3_animation = SubResource( 8 )
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/enemy2"]
 autoplay = "enemy_2_animation"
-anims/enemy_1_animation = SubResource( 7 )
-anims/enemy_2_animation = SubResource( 8 )
+anims/enemy_1_animation = SubResource( 9 )
+anims/enemy_2_animation = SubResource( 10 )
 
 [node name="enemy1" parent="enemies" instance=ExtResource( 7 )]
 transform = Transform( 0.440242, 0.897879, 0, -0.897879, 0.440242, 0, 0, 0, 1, 3.24212, 2, -3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/enemy1"]
 autoplay = "enemy_1_animation"
-anims/enemy_1_animation = SubResource( 6 )
+anims/enemy_1_animation = SubResource( 11 )
+
+[node name="enemy5" parent="enemies" instance=ExtResource( 7 )]
+transform = Transform( -2.90067e-07, -1, 0, -0.733194, 2.12675e-07, -0.680019, 0.680019, -1.97251e-07, -0.733194, -9, 2, -1.95211 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemies/enemy5"]
+autoplay = "enemy_5_animation"
+anims/enemy_1_animation = SubResource( 12 )
+anims/enemy_5_animation = SubResource( 13 )
 
 [node name="coins" type="Spatial" parent="."]
 
@@ -376,6 +438,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -4.5 )
 
 [node name="coin" parent="coins/coinHolder5" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder6" type="Spatial" parent="coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -8.5 )
+
+[node name="coin" parent="coins/coinHolder6" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="coinHolder7" type="Spatial" parent="coins"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 2, -8.5 )
+
+[node name="coin" parent="coins/coinHolder7" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="HUD" type="Control" parent="."]
@@ -423,6 +497,7 @@ __meta__ = {
 [connection signal="body_entered" from="enemies/enemy3" to="Character" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="enemies/enemy2" to="Character" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="enemies/enemy1" to="Character" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="enemies/enemy5" to="Character" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="coins/coinHolder1/coin" to="coins/coinHolder1/coin" method="_on_coin_body_entered"]
 [connection signal="coinCollected" from="coins/coinHolder1/coin" to="HUD/Counter" method="_on_coinCollected"]
 [connection signal="body_entered" from="coins/coinHolder2/coin" to="coins/coinHolder2/coin" method="_on_coin_body_entered"]
@@ -433,4 +508,8 @@ __meta__ = {
 [connection signal="coinCollected" from="coins/coinHolder4/coin" to="HUD/Counter" method="_on_coinCollected"]
 [connection signal="body_entered" from="coins/coinHolder5/coin" to="coins/coinHolder5/coin" method="_on_coin_body_entered"]
 [connection signal="coinCollected" from="coins/coinHolder5/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="body_entered" from="coins/coinHolder6/coin" to="coins/coinHolder6/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="coins/coinHolder6/coin" to="HUD/Counter" method="_on_coinCollected"]
+[connection signal="body_entered" from="coins/coinHolder7/coin" to="coins/coinHolder7/coin" method="_on_coin_body_entered"]
+[connection signal="coinCollected" from="coins/coinHolder7/coin" to="HUD/Counter" method="_on_coinCollected"]
 [connection signal="timeout" from="HUD/Counter/Timer" to="HUD/Counter" method="_on_Timer_timeout"]

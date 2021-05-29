@@ -8,7 +8,7 @@ func _ready():
 func _on_coinCollected():
 	amount += 1
 	_ready()
-	if(amount == 5):
+	if(amount == 7):
 		$Timer.start()
 	
 
