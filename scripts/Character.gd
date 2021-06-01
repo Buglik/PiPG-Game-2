@@ -3,38 +3,40 @@ extends KinematicBody
 var velocity = Vector3()
 const SPEED = 5
 const SPINDEG = 8
+export var JUMP_SPEED = 10
+export var gravity = Vector3.DOWN * 10
+var jump = false
 
 func _ready():
 	$Music.play()
 
 func _physics_process(delta):
+	velocity += gravity * delta
+	get_input()
+	velocity = move_and_slide(velocity, Vector3.UP)
+	if jump and is_on_floor():
+		velocity.y = JUMP_SPEED
 	
-	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left"):
-		velocity.x = lerp(velocity.x,0,0.1)
-	else:
-		if Input.is_action_pressed("ui_right"):
-			velocity.x = SPEED
-			$MeshInstance.rotate_z(-deg2rad(SPINDEG))
-		elif Input.is_action_pressed("ui_left"):
-			velocity.x = -SPEED	
-			$MeshInstance.rotate_z(deg2rad(SPINDEG))
-		else:
-			velocity.x = lerp(velocity.x,0,0.1)
+func get_input():	
+	velocity.x = 0
+	velocity.z = 0
+	if Input.is_action_pressed("move_forward"):
+		velocity.z -= SPEED
+		$MeshInstance.rotate_x(-deg2rad(SPINDEG))
+	if Input.is_action_pressed("move_back"):
+		velocity.z += SPEED	
+		$MeshInstance.rotate_x(deg2rad(SPINDEG))
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= SPEED
+		$MeshInstance.rotate_z(deg2rad(SPINDEG))
+	if Input.is_action_pressed("move_right"):
+		velocity.x += SPEED			
+		$MeshInstance.rotate_z(-deg2rad(SPINDEG))
 	
-	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_down"):
-		velocity.z = lerp(velocity.z,0,0.1)
-	else:
-		if Input.is_action_pressed("ui_up"):
-			velocity.z = -SPEED
-			$MeshInstance.rotate_x(-deg2rad(SPINDEG))
-		elif Input.is_action_pressed("ui_down"):
-			velocity.z = SPEED	
-			$MeshInstance.rotate_x(deg2rad(SPINDEG))
-		else:
-			velocity.z = lerp(velocity.z,0,0.1)	
-		
+	jump = false
+	if Input.is_action_just_pressed("jump"):
+		jump = true
 	
-	move_and_slide(velocity)
 
 
 func _on_enemy_body_entered(body):
